@@ -39,7 +39,7 @@ export class SummaryComponent implements OnInit {
     const token = localStorage.getItem('token');
     console.log(token)
     const headers = { Authorization: `Bearer ${token}` };
-    this.http.get<{ data: ChartData[] }>('http://localhost:3000/charts/summary-chart', { headers }).subscribe({
+    this.http.get<{ data: ChartData[] }>('http://137.184.219.254:3000/charts/summary-chart', { headers }).subscribe({
       next: (response) => {
         this.data = response.data;
         this.createSvg();

@@ -43,7 +43,7 @@ export class ReportsComponent implements OnInit {
     const token = localStorage.getItem('token');
     console.log(token)
     const headers = { Authorization: `Bearer ${token}` };
-    this.http.get<{ data: ReportChartData[] }>('http://localhost:3000/charts/reports-chart', { headers }).subscribe({
+    this.http.get<{ data: ReportChartData[] }>('http://137.184.219.254:3000/charts/reports-chart', { headers }).subscribe({
       next: (response) => {
         this.data = response.data;
         this.createSvg();
