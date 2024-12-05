@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
+require('dotenv').config();
+
 
 const app = express();
 const PORT = 3000;
@@ -13,7 +15,10 @@ const SECRET_KEY = 'your_jwt_secret_key'; // replace with your secret key
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
-const mongoURI = 'mongodb://localhost:27017/S18db';
+// const mongoURI = 'mongodb://localhost:27017/S18db';
+const mongoURI = process.env.MONGO_URI
+
+
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
@@ -22,9 +27,18 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   const reportSchema = new mongoose.Schema({
     category: String,
     percentage: Number
+
   });
 
   const Report = mongoose.model('reports', reportSchema);
+
+
+  const summarySchema = new mongoose.Schema({
+    source: String,
+    value: Number
+  });
+
+  const Summary = mongoose.model('summary', summarySchema);
 
 // Mock user data (for demo purposes)
 const users = [
@@ -69,23 +83,32 @@ app.get('/api/dashboard', verifyToken, (req, res) => {
 });
 
 // Chart Data Endpoints
-app.get('/charts/summary-chart', verifyToken, (req, res) => {
+app.get('/charts/summary-chart', verifyToken, async (req, res) => {
+try{
+
+  const summaryData = await Summary.find();
+  console.log(summaryData);
+  if (summaryData.length === 0) {
+    return res.status(404).json({ message: 'No reports data found in the database.' });
+  }
+
   res.json({
     title: 'Clean Energy Production by Source',
-    data: [
-      { source: 'Solar', value: 45 },
-      { source: 'Wind', value: 30 },
-      { source: 'Hydro', value: 15 },
-      { source: 'Nuclear', value: 10 },
-    ],
+    data: summaryData,
   });
+  }
+
+  catch (err) {
+    console.error('Error fetching data from MongoDB:', err);
+    res.status(500).json({ message: 'Error fetching data from MongoDB' });
+  }
 });
 
 app.get('/charts/reports-chart', verifyToken, async (req, res) => {
   try {
     // Query MongoDB for all report data
     const reportsData = await Report.find();
-
+    console.log(reportsData);
     if (reportsData.length === 0) {
       return res.status(404).json({ message: 'No reports data found in the database.' });
     }
