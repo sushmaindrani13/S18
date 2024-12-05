@@ -1,0 +1,39 @@
+.login-prompt {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: absolute; /* Adjust as needed */
+    top: 50%; /* Center the prompt */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000; /* Make sure it appears above other content */
+  }
+
+  .dashboard-content {
+    padding: 20px;
+  }
+  
+  .dashboard-content h1, 
+  .dashboard-content h2 {
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-content p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .dashboard-content a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .dashboard-content a:hover {
+    text-decoration: underline;
+  }
+  
+  

@@ -1,0 +1,23 @@
+<!-- login.component.html -->
+<s18-menu></s18-menu>
+<div *ngIf="showPrompt" class="login-prompt">
+    <h2>Please Log In</h2>
+    <p>You must be logged in to access the Dashboard, Summary, or Reports.</p>
+  </div>
+  
+<div class="login-container">
+    <h2>Login</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" [(ngModel)]="username" name="username" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" [(ngModel)]="password" name="password" required />
+      </div>
+      <button type="submit">Login</button>
+      <p *ngIf="loginError">{{ loginError }}</p>
+    </form>
+  </div>
+  
