@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 // const mongoURI = 'mongodb://localhost:27017/S18db';
-const mongoURI = 'mongodb+srv://doadmin:H5gAc0ak39782Mt4@sushmas18-4ce090ce.mongo.ondigitalocean.com/s18db?tls=true&authSource=admin&replicaSet=sushmas18';
+const mongoURI = process.env.MONGO_URI;
 
 
 
