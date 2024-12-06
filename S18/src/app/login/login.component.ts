@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit{
   onSubmit(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: () => {
+        window.history.replaceState(null, '', '/dashboard'); // Update URL
         this.router.navigate(['/dashboard']); // Redirect to dashboard on successful login
       },
       error: () => {

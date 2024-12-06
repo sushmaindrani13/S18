@@ -1,23 +1,45 @@
-<!-- login.component.html -->
-<s18-menu></s18-menu>
-<div *ngIf="showPrompt" class="login-prompt">
-    <h2>Please Log In</h2>
-    <p>You must be logged in to access the Dashboard, Summary, or Reports.</p>
-  </div>
-  
-<div class="login-container">
-    <h2>Login</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input id="username" [(ngModel)]="username" name="username" required />
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" type="password" [(ngModel)]="password" name="password" required />
-      </div>
-      <button type="submit">Login</button>
-      <p *ngIf="loginError">{{ loginError }}</p>
-    </form>
-  </div>
-  
+<s18-menu role="navigation" aria-label="Main Menu"></s18-menu>
+
+<div *ngIf="showPrompt" class="login-prompt" role="alert" aria-live="assertive">
+  <h2 class="prompt-title">Please Log In</h2>
+  <p class="prompt-text">
+    You must be logged in to access the Dashboard, Summary, or Reports.
+  </p>
+</div>
+
+<div class="login-container" role="form" aria-labelledby="login-title">
+  <h2 id="login-title" class="login-title">Login Here</h2>
+  <form (ngSubmit)="onSubmit()" aria-describedby="login-description">
+    <p id="login-description" class="sr-only">Log in with your username and password to access your dashboard.</p>
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        id="username"
+        [(ngModel)]="username"
+        name="username"
+        type="text"
+        placeholder="Enter your username"
+        required
+        aria-required="true"
+        aria-describedby="username-help"
+      />
+      <p id="username-help" class="sr-only">Your unique username.</p>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+        aria-required="true"
+        aria-describedby="password-help"
+      />
+      <p id="password-help" class="sr-only">Your secure password.</p>
+    </div>
+    <button type="submit" aria-label="Click to log in">Login</button>
+    <p *ngIf="loginError" class="error-message" role="alert">{{ loginError }}</p>
+  </form>
+</div>

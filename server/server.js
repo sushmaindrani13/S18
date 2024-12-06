@@ -16,13 +16,17 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.json());
 // const mongoURI = 'mongodb://localhost:27017/S18db';
-const mongoURI = process.env.MONGO_URI
+const mongoURI = 'mongodb+srv://doadmin:H5gAc0ak39782Mt4@sushmas18-4ce090ce.mongo.ondigitalocean.com/s18db?tls=true&authSource=admin&replicaSet=sushmas18';
 
 
 
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.log('MongoDB connection error:', err));
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true, // Explicitly enable TLS
+})
+  .then(() => console.log('Connected to MongoDB database "s18db" with TLS'))
+  .catch(err => console.error('Error connecting to MongoDB:', err));
 
   const reportSchema = new mongoose.Schema({
     category: String,
@@ -44,8 +48,8 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 const users = [
   {
     id: 1,
-    username: 'user1',
-    password: bcrypt.hashSync('password', 8) // Pre-hashed password
+    username: 'sushma',
+    password: bcrypt.hashSync('sushma', 8) // Pre-hashed password
   }
 ];
 

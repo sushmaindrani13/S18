@@ -1,39 +1,91 @@
-.login-prompt {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    position: absolute; /* Adjust as needed */
-    top: 50%; /* Center the prompt */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000; /* Make sure it appears above other content */
-  }
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .dashboard-content {
-    padding: 20px;
-  }
-  
-  .dashboard-content h1, 
-  .dashboard-content h2 {
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  .dashboard-content p {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-  
-  .dashboard-content a {
-    color: #007BFF;
-    text-decoration: none;
-  }
-  
-  .dashboard-content a:hover {
-    text-decoration: underline;
-  }
-  
-  
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.dashboard-header {
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.dashboard-title {
+  font-size: 2.5rem;
+  color: #0066cc;
+  margin-bottom: 10px;
+}
+
+/* Section Styling */
+.dashboard-section {
+  margin-top: 30px;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #0066cc;
+  margin-bottom: 15px;
+  border-left: 4px solid #0066cc;
+  padding-left: 10px;
+}
+
+/* Paragraph Styling */
+.dashboard-content p {
+  margin-bottom: 15px;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Link Styling */
+.dashboard-content a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dashboard-content a:hover,
+.dashboard-content a:focus {
+  text-decoration: underline;
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+/* Menu Styles */
+s18-menu {
+  display: block;
+  background-color: #0066cc;
+  padding: 15px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus State for Accessibility */
+s18-menu:focus {
+  outline: 2px solid #fff;
+  outline-offset: 4px;
+}

@@ -1,11 +1,15 @@
-<s18-menu></s18-menu>
-<div>
-    <h2>Summary Page</h2>
-    <figure id="bar"></figure>
-    <p>
-      The bar chart above visualizes key data related to clean energy innovations. The data represents 
-      different energy sources and their respective contributions to clean energy solutions. This data 
-      is fetched dynamically from the backend API and rendered using D3.js.
-    </p>
-  </div>
+<s18-menu role="navigation" aria-label="Main Menu"></s18-menu>
+
+<div class="container" role="main" aria-labelledby="summary-title">
+  <h2 id="summary-title" class="page-title">Welcome to the Summary Page</h2>
   
+  <!-- Chart container with ARIA attributes -->
+  <figure id="bar" class="chart-container" aria-labelledby="chart-title">
+  </figure>
+
+  <p class="description">
+    The bar chart above visualizes key data related to innovation or technology in clean energy.
+    The data represents different energy sources and their respective contributions to clean energy solutions,
+    in terms of level of investment (in millions).
+  </p> 
+</div>

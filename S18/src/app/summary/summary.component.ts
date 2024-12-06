@@ -18,7 +18,7 @@ export class SummaryComponent implements OnInit {
   private svg: any;
   private margin = 110;
   private width = 750 - this.margin * 2;
-  private height = 600 - this.margin * 2;
+  private height = 550 - this.margin * 2;
   public data: ChartData[] = [];
 
   constructor(private http: HttpClient, private authService: AuthService, private router: Router) {}

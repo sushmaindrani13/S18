@@ -1,18 +1,36 @@
-<s18-menu></s18-menu>
-<div class="dashboard-content">
+<s18-menu role="navigation" aria-label="Main Menu"></s18-menu>
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Welcome to the Dashboard</h1>
+  </header>
   
-    <h2>Recent Innovations in Clean Energy</h2>
-    <p>
-      Innovations in clean energy are central to achieving a sustainable future and mitigating climate change. Offshore wind energy, particularly floating wind technologies, represents a significant breakthrough in renewable energy generation. Unlike traditional fixed-bottom turbines, floating wind farms can operate in deeper waters, unlocking vast untapped resources. This advancement enables the production of clean energy in locations with stronger, more consistent winds, while minimizing interference with other economic activities. By leveraging these innovative approaches, offshore wind energy can complement diminishing onshore and nearshore resources, playing a pivotal role in decarbonizing industries and meeting rising energy demands sustainably.
-    </p>
-    <p>
-    Equally transformative is the development of energy storage solutions, such as advanced batteries. These technologies address the intermittent nature of renewable energy sources like solar and wind by storing excess power for use during periods of high demand. Modern batteries are not only essential for stabilizing power grids but also for advancing low-emission mobility through electric vehicles. Long-term storage options like hydrogen and synthetic fuels complement battery technologies by catering to extended timeframes and larger energy volumes. Innovations in materials and manufacturing processes aim to make batteries more cost-effective, environmentally friendly, and efficient, ensuring they remain a cornerstone in the clean energy transition.
-      <a href="https://www.eib.org/en/essays/green-energy-innovation" target="_blank">(Source)</a>
-    </p>
-  
-    <h2>Technical Aspects of This Project</h2>
-    <p>
-      This project uses Angular for the frontend, offering a dynamic and responsive user interface. Node.js serves as the backend, providing a lightweight and scalable environment for handling API requests and authentication. MongoDB is employed as the database, enabling efficient storage and retrieval of user data. The authentication mechanism relies on JSON Web Tokens (JWT), ensuring secure and stateless user sessions. The application is structured with a clear separation of concerns, using services for business logic and routing to manage navigation. The tech stack is deployed locally and is compatible with containerization solutions like Docker for scalability and CI/CD pipelines.
-    </p>
-  </div>
-  
+  <main class="dashboard-content" role="main">
+    <section class="dashboard-section" aria-labelledby="recent-innovations">
+      <h2 id="recent-innovations" class="section-title">Recent Innovations in Clean Energy</h2>
+      <p>
+        Innovations in clean energy are central to achieving a sustainable future and mitigating climate change. 
+        Offshore wind energy, particularly floating wind technologies, represents a significant breakthrough in renewable energy generation.
+        By leveraging these innovative approaches, offshore wind energy can complement diminishing onshore and nearshore resources,
+        playing a pivotal role in decarbonizing industries and meeting rising energy demands sustainably.
+      </p>
+      <p>
+        Equally transformative is the development of energy storage solutions, such as advanced batteries. 
+        Modern batteries are essential for stabilizing power grids and advancing low-emission mobility through electric vehicles.
+        Innovations in materials and manufacturing processes aim to make batteries more cost-effective, environmentally friendly, 
+        and efficient, ensuring they remain a cornerstone in the clean energy transition.
+        <a href="https://www.eib.org/en/essays/green-energy-innovation" target="_blank" aria-label="Read more about green energy innovations on EIB's website">(Source)</a>
+      </p>
+    </section>
+    
+    <section class="dashboard-section" aria-labelledby="technical-details">
+      <h2 id="technical-details" class="section-title">Technical Aspects of This Project</h2>
+      <p>
+        This project uses Angular for the frontend, offering a dynamic and responsive user interface. 
+        Node.js serves as the backend, providing a lightweight and scalable environment for handling API requests and authentication. 
+        MongoDB is employed as the database, enabling efficient storage and retrieval of user data.
+        The authentication mechanism relies on JSON Web Tokens (JWT), ensuring secure and stateless user sessions.
+        The application is structured with a clear separation of concerns, using services for business logic and routing to manage navigation.
+      </p>
+    </section>
+  </main>
+</div>

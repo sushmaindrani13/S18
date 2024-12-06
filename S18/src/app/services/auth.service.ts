@@ -7,7 +7,7 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // Replace with your backend URL
+  private apiUrl = 'http://137.184.219.254:3000/api/auth'; // Replace with your backend URL
 
   constructor(private http: HttpClient) {}
 
@@ -20,7 +20,8 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem('token'); // Remove token on logout
+    localStorage.removeItem('token');
+    window.location.replace('/'); // Remove token on logout
   }
 
   getToken(): string | null {
